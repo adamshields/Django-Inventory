@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+<style>
+    {% block style %}
+
+
+    {% endblock %}
+</style>
+
+{% block jumbotron %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class='col-sm-6'>
+                <h1>MongoTory</h1>
+                <p>The Nextgen of High Availability open source Inventory management Database </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="" role="button">Get Moving &raquo;</a>
+                </p>
+            </div>
+            <div class='col-sm-6' style="background-color:black;height:300px;">
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

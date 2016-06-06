@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Name: {{ object }}</h1>
+    <ul>
+    <li>
+    <h4>Manufacturer: {{ object.item_manufacturer }}</h4>
+        </li>
+        <li>
+    <h4>Location: {{ object.item_location }}</h4>
+            </li>
+
+    <h4></h4>
+    </ul>
+
+
+{% endblock %}

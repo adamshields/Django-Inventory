@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+<style>
+    {% block style %}
+
+    {% endblock %}
+</style>
+{% block jumbotron %}
+    <div class="jumbotron">
+        <div class="row">
+            <div class='col-sm-6'>
+                <h3>{% if title %}{{ title|upper }} {% endif %}</h3>
+                <p>Open source Inventory Management Database </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="" role="button">Get Moving &raquo;</a>
+                </p>
+            </div>
+            <div class='col-sm-6' style="background-color:black;height:300px;">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+    <table class="table">
+        {% for object in object_list %}
+            <tr>
+                <td><a href="{{ object.get_absolute_url }}">{{ object }}</a> </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

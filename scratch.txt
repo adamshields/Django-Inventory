@@ -1,0 +1,21 @@
+Models
+
+from django.db import models
+
+# Create your models here.
+class Product(models.Model):
+    concentrate_name = models.CharField(max_length=300)
+    concentrate_mfg_name = models.ForeignKey('Manufacturer', on_delete=models.CASCADE)
+
+class Manufacturer(models.Model):
+    concentrate_mfg_name = models.CharField(max_length=300)
+    concentrate_mfg_url = models.URLField()
+    concentrate_mfg_username = models.CharField(max_length=100)
+    concentrate_mfg_password = models.CharField(max_length=100)
+
+class Stock(models.Model)
+
+
+    def __unicode__(self):
+        return Product.concentrate_name
+

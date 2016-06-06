@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+<style>
+    {% block style %}
+
+
+    {% endblock %}
+</style>
+
+{% block jumbotron %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class='col-sm-6'>
+
+                <h3>{{ title|upper }} {{ myUser|capfirst }}</h3>
+                <p>The Nextgen of High Availability open source Inventory management Database </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="" role="button">Get Moving &raquo;</a>
+                </p>
+            </div>
+            <div class='col-sm-6' style="background-color:black;height:300px;">
+            {{ image_link }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="row">
+
+        <div class="col-sm-3 pull-right">
+            <p class='lead text-align-center'>High Availibility &amp; Secure</p>
+        </div>
+
+        <div class='col-sm-3'>
+            <p class='lead text-align-center'>Built with Django &amp; Bootstrap</p>
+        </div>
+
+        <div class='col-sm-3'>
+            <p class='lead text-align-center'>Created for Starters of all kinds. </p>
+        </div>
+
+        <div class='col-sm-3'>
+            <p class='lead text-align-center'>Always Open Source</p>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
