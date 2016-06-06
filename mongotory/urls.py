@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
-from inventory.views import InventoryTemplateView, ExampleTemplateView, MyView, InventoryDetail, InventoryListView
+from inventory.views import InventoryTemplateView, ExampleTemplateView, MyView, InventoryDetail, InventoryListView, InventoryCreateView
 admin.autodiscover()
 
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     #url(r'^inventory/', include('inventory.urls')),
     #url(r'^polls/', include('polls.urls')),
     #url(r'^inventory/', 'inventory.views.index', name='inventory'),
+    url(r'^inventorydetail/create/$', InventoryCreateView.as_view(), name='inventory_create'),
     url(r'^inventorydetail/$', InventoryListView.as_view(), name='inventory_list'),
     url(r'^inventorydetail/(?P<slug>[-\w]+)$', InventoryDetail.as_view(), name='inventory_detail'),
     url(r'^inventory/$', InventoryTemplateView.as_view(template_name='inventory.html'), name='inventory'),

@@ -8,22 +8,38 @@ from django.shortcuts import render, render_to_response, RequestContext
 from django.views.generic.edit import ModelFormMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect
 #http://django-braces.readthedocs.io/en/latest/other.html#orderablelistmixin
 from .forms import ProductForm, ManufacturerForm
 from .models import Product, Manufacturer
 
+# Create Views --
+class InventoryCreateView(CreateView):
+    model = Product
+    template_name = "forms.html"
+    fields = ["item_name", "item_manufacturer", "item_stock_status"]
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        print(self.object)
+        self.object.slug = self.object
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
+# Detail Views
 class InventoryDetail(DetailView):
     model = Product
+
 
 class InventoryListView(ListView):
     model = Product
 
     def get_queryset(self, *args, **kwargs):
         qs =super(InventoryListView, self).get_queryset(*args, **kwargs)
-        print(qs)
-        print(qs.first().id)
+        # print(qs)
+        # print(qs.first().id)
         return qs
 
 

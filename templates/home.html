@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class='col-sm-6' style="background-color:black;height:300px;">
-            {{ image_link }}
+                {{ image_link }}
             </div>
 
         </div>
@@ -37,6 +37,22 @@
 
         <div class="col-sm-3 pull-right">
             <p class='lead text-align-center'>High Availibility &amp; Secure</p>
+            {% block form %}
+                {% load crispy_forms_tags %}
+
+
+                {% if title %}
+                    <h1 class='{% if title_align_center %}text-align-center{% endif %}'>{{ title }}</h1>
+                {% endif %}
+
+                <form method='POST' action=''>{% csrf_token %}
+                    {{ form|crispy }}
+
+                    <input class='btn btn-default' type='submit' value='Submit'/>
+
+                </form>
+
+            {% endblock %}
         </div>
 
         <div class='col-sm-3'>

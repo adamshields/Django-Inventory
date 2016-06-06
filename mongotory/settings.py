@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # My Apps
     #'home.apps.HomeConfig',
     'inventory.apps.InventoryConfig', # Inventory/Apps.py/Class InventoryConfig
+    'crispy_forms'
 
 
 ]
