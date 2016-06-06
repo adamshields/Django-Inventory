@@ -14,7 +14,7 @@ from django.http import HttpResponseRedirect
 from .forms import ProductForm, ManufacturerForm
 from .models import Product, Manufacturer
 
-# Create Views ---- ###
+# Create Views
 class InventoryCreateView(CreateView):
     model = Product
     template_name = "forms.html"
