@@ -26,3 +26,14 @@ public DesignsModel addApprovalToDesign(Integer designId, Approval approval, Str
     designsRepo.save(design);
     return design;
 }
+
+
+private ResponseEntity<?> processApproval(Integer designId, Approval approval, String level) {
+    try {
+        approval.setApprovalLevel(level);
+        DesignsModel updatedDesign = approvalService.addApprovalToDesign(designId, approval, level);
+        return new ResponseEntity<>(updatedDesign, HttpStatus.CREATED);
+    } catch (Exception e) {
+        return new ResponseEntity<>("Error adding approval: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
